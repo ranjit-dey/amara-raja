@@ -126,7 +126,7 @@ export default function PerformanceDashboard() {
         if (category === activeTab) return
 
         // Scroll to the top of the grid section
-        const yOffset = -190 // Adjust based on your sticky nav height
+        const yOffset = -300 // Adjust based on your sticky nav height
         const element = gridAnchorRef.current
         const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset
 
@@ -187,12 +187,12 @@ export default function PerformanceDashboard() {
             <div className="max-w-7xl mx-auto flex flex-col">
                 {/* REFINED NAVIGATION */}
                 <nav className=" mx-auto mb-8 ">
-                    <div className="border border-blue/20 rounded-full p-2 flex items-center justify-start gap-4 bg-white/50 backdrop-blur-sm shadow-sm">
+                    <div className="w-full border border-blue/20 rounded-xl lg:rounded-full p-2 flex flex-col lg:flex-row">
                         {performanceHighlights.map((tab) => (
                             <button
                                 key={tab.category}
                                 onClick={() => handleTabChange(tab.category)}
-                                className={`px-5 py-2.5 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-500 ${
+                                className={`px-5 py-2.5 rounded-md lg:rounded-full text-xs font-black uppercase tracking-widest transition-all duration-500 ${
                                     activeTab === tab.category
                                         ? 'bg-blue text-white shadow-lg'
                                         : 'text-gray-400 hover:text-blue hover:bg-gray-50'

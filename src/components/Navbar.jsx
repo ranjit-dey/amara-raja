@@ -47,7 +47,7 @@ export default function Navbar() {
   }, [isOpen]);
 
   return (
-    <nav ref={navContainer} className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
+    <nav ref={navContainer} className="sticky top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-xl border-b border-gray-200">
       <div className="max-w-7xl mx-auto h-16 px-6 flex items-center justify-between relative z-50 bg-white/10">
 
         {/* Logo */}

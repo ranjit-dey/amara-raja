@@ -89,11 +89,11 @@ const About = () => {
     return (
         <section
             ref={containerRef}
-            className="relative bg-[var(--color-white)] border-t border-gray-100"
+            className="relative bg-white border-t border-gray-100"
         >
             <div className="flex flex-col lg:flex-row min-h-screen">
                 {/* Left Panel */}
-                <div className="left-panel lg:w-1/2 h-fit lg:h-screen flex flex-col justify-center px-6 py-16 md:px-12 lg:px-24 bg-[var(--color-white)] lg:border-r border-gray-100">
+                <div className="left-panel lg:w-1/2 h-fit lg:h-screen flex flex-col justify-center px-6 py-16 md:px-12 lg:px-24 bg-white lg:border-r border-gray-100">
                     <div className="space-y-4 md:space-y-6">
                         <h2 className="text-[10px] md:text-sm font-bold tracking-[0.4em] text-gray-400 uppercase">
                             Establishment
@@ -118,7 +118,6 @@ const About = () => {
                                 Amara Raja
                             </span>
                         </h1>
-                        {/* Divider using Deep Red from theme */}
                         <div
                             className="h-1.5 w-20 bg-linear-to-r
               from-green
@@ -139,7 +138,7 @@ const About = () => {
                     {stats.map((item, index) => (
                         <div
                             key={index}
-                            className={`stat-block-${index} stat-block-mobile h-[60vh] lg:h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 border-b border-gray-50`}
+                            className={`stat-block-${index} stat-block-mobile  lg:h-screen flex flex-col justify-center px-6 md:px-12 lg:px-24 border-b border-gray-50 py-6`}
                             style={{
                                 backgroundColor: `color-mix(in srgb, ${item.color} 10%, transparent)`,
                             }}

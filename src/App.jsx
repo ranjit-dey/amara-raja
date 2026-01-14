@@ -8,7 +8,6 @@ import Timeline from './components/Timeline'
 import VVIPSection from './components/VVIPSection'
 import { directorsData } from './data/directorsData'
 import { performanceHighlights } from './data/performanceHighlights'
-// import Card2 from './components/Card2'
 
 const App = () => {
     return (
@@ -20,7 +19,6 @@ const App = () => {
             <VVIPSection />
             <BoardOfDirectors directors={directorsData} />
             <PerformanceHighlights performanceHighlights={performanceHighlights} />
-            {/* <Card2 highlights={performanceHighlights}/> */}
             <Footer />
         </div>
     )

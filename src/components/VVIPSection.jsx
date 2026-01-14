@@ -39,7 +39,6 @@ const VVIPSection = () => {
               text-transparent
               leading-none
               tracking-tighter
-
             "
                 >
                     Leadership Vision
@@ -57,14 +56,14 @@ const VVIPSection = () => {
                         }}
                     >
                         {/* Main Card Container */}
-                        <div className="relative overflow-hidden rounded-[40px] border border-slate-200 bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] group-hover:-translate-y-2">
+                        <div className="relative overflow-hidden  rounded-[40px] border border-slate-200 bg-white shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(0,0,0,0.15)] group-hover:-translate-y-2">
                             {/* Subtle Themed Glow in corner */}
                             <div
                                 className="absolute -right-10 -bottom-10 w-64 h-64 rounded-full blur-[80px] opacity-10 transition-opacity group-hover:opacity-25"
                                 style={{ backgroundColor: person.color }}
                             />
 
-                            <div className="flex flex-col md:flex-row items-center gap-10 p-10 md:p-16">
+                            <div className="flex flex-col md:flex-row items-center gap-10 p-10 ">
                                 {/* Image Section - Fixed Rotation Logic */}
                                 <div className="relative w-56 h-56 md:w-72 md:h-72 flex-shrink-0 flex items-center justify-center">
                                     <div
@@ -101,7 +100,7 @@ const VVIPSection = () => {
                                         >
                                             “
                                         </span>
-                                        <p className="text-slate-600 leading-relaxed text-lg md:text-xl font-medium relative z-10">
+                                        <p className="text-slate-600 leading-relaxed text-sm font-medium relative z-10">
                                             {person.speech}
                                         </p>
                                     </div>

@@ -9,48 +9,70 @@ const BoardOfDirectors = ({ directors }) => {
   const sliderRef = useRef(null)
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      const slider = sliderRef.current
+    // Only run GSAP on Large Screens (992px+)
+    let mm = gsap.matchMedia();
 
-      const getScrollAmount = () =>
-        slider.scrollWidth - window.innerWidth
+    mm.add("(min-width: 1024px)", () => {
+      const slider = sliderRef.current
+      const getScrollAmount = () => slider.scrollWidth - window.innerWidth
 
       gsap.to(slider, {
         x: () => -getScrollAmount(),
         ease: 'none',
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top',
+          start: 'top top',
           end: () => `+=${getScrollAmount()}`,
           pin: true,
           scrub: 1,
-          anticipatePin: 1,
           invalidateOnRefresh: true,
         },
-      })
-    }, sectionRef)
+      });
+    });
 
-    return () => ctx.revert()
-  }, [directors])
+    return () => mm.revert();
+  }, [directors]);
+
+  // Mobile Button Controls
+  const scroll = (direction) => {
+    if (sliderRef.current) {
+      const scrollAmount = window.innerWidth * 0.8;
+      sliderRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full bg-white overflow-hidden mb-20"
-    >
-      {/* Header */}
-      <div className="relative z-10  px-6 max-w-7xl mx-auto">
+    <section ref={sectionRef} className="relative w-full bg-white overflow-hidden py-10 lg:py-20">
+      <div className="relative z-10 px-6 max-w-7xl mx-auto flex justify-between items-end">
         <h2 className="text-5xl sm:text-7xl font-black leading-none tracking-tighter
-          bg-linear-to-r from-green via-blue to-pink bg-clip-text text-transparent">
+          bg-gradient-to-r from-green-500 via-blue-500 to-pink-500 bg-clip-text text-transparent">
           Our Leadership
         </h2>
+
+        {/* Mobile Navigation Buttons - Only visible on small screens */}
+        <div className="flex gap-2 lg:hidden mb-2">
+          <button
+            onClick={() => scroll('left')}
+            className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-sm active:scale-90 transition-transform"
+          >
+            ←
+          </button>
+          <button
+            onClick={() => scroll('right')}
+            className="w-10 h-10 rounded-full border border-gray-200 flex items-center justify-center bg-white shadow-sm active:scale-90 transition-transform"
+          >
+            →
+          </button>
+        </div>
       </div>
 
-      {/* Slider */}
-      <div className="relative mt-20 flex items-center">
+      <div className="relative mt-12 lg:mt-20 flex items-center">
         <div
           ref={sliderRef}
-          className="flex gap-6 md:gap-12 px-6 md:px-24 "
+          className="flex gap-6 md:gap-12 px-6 md:px-24 overflow-x-auto no-scrollbar snap-x snap-mandatory lg:overflow-visible"
           style={{
             width: 'max-content',
             willChange: 'transform',
@@ -59,7 +81,7 @@ const BoardOfDirectors = ({ directors }) => {
           {directors.map((person, index) => (
             <div
               key={index}
-              className="w-[75vw]  sm:w-[42vw] lg:w-[26vw] shrink-0"
+              className="w-[80vw] sm:w-[45vw] lg:w-[26vw] shrink-0 snap-center"
             >
               <DirectorCard person={person} index={index} />
             </div>

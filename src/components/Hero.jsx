@@ -119,10 +119,9 @@ const HeroSection = () => {
                 {/* Decorative background text */}
                 <div className="absolute right-0 bottom-0 select-none  pointer-events-none translate-y-1/4">
                     <h3 className="text-[17vw] z-1000 font-black leading uppercase">
-                        <span className="text-[#ebebeb] opacity-80 z-10 font-black inline-block">
-                            E
+                        <span className="text-[#ebebeb] opacity-80 z-10  bg-clip-text  font-black inline-block">
+                            ENERGY
                         </span>
-                        <span className="opacity-[0.08]">NERGY</span>
                     </h3>
                 </div>
             </div>
